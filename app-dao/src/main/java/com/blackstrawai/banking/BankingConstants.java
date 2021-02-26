@@ -1,0 +1,51 @@
+package com.blackstrawai.banking;
+
+public class BankingConstants {
+
+	public static final String INSERT_INTO_BANK_MASTER_ACCOUNTS = "insert into banking.bank_master_bank_account(account_name,account_type_id,account_number,account_variant_id,ifsc_code,bank_name,branch_name,current_balance,interest_rate,opening_date,currency_id,term_month,term_year,maturity_date,limit_val,account_code,user_id,organization_id,isSuperAdmin,role_name)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_INTO_BANK_MASTER_CARDS = "insert into banking.bank_master_card(account_name,authorized_person,opening_date,card_number,issuing_bank_name,current_balance,billing_date,limit_val,account_code,isSuperAdmin,organization_id,user_id,role_name)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_INTO_BANK_MASTER_WALLETS = "insert into banking.bank_master_wallet(wallet_account_name,authorized_person,opening_date,wallet_number,wallet_provider,current_balance,transaction_limit,account_code,isSuperAdmin,organization_id,user_id,role_name)values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_INTO_BANK_MASTER_ACCOUNT_CASH = "insert into banking.bank_master_cash_account(cash_account_name,account_code,current_balance,currency_id,location_id,organization_id,isSuperAdmin,user_id,role_name)values(?,?,?,?,?,?,?,?,?)";
+	public static final String CHECK_BANK_MASTER_ACCOUNTS_EXIST_FOR_ORGANIZATION = "select * from banking.bank_master_bank_account where organization_id=? and account_name=? and bank_name=?";
+	public static final String CHECK_BANK_MASTER_CARD_EXIST_FOR_ORGANIZATION = "select * from banking.bank_master_card where organization_id=? and card_number=?";
+	public static final String CHECK_BANK_MASTER_WALLET_EXIST_FOR_ORGANIZATION = "select * from banking.bank_master_wallet where organization_id=? and wallet_number=?";
+	public static final String GET_BANK_MASTER_ACCOUNT_INFO_BY_ORGANIZATION = "select id,account_name,bank_name,current_balance from banking.bank_master_bank_account where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_ACCOUNT_INFO_BY_ORGANIZATION_FOR_USER_ROLE = "select id,account_name,bank_name,current_balance from banking.bank_master_bank_account where organization_id=? and user_id=? and role_name=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_ACCOUNT_INFO_ORGANIZATION = "select id,account_name,bank_name,current_balance from banking.bank_master_bank_account where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CARD_INFO_BY_ORGANIZATION = "select id,account_name,issuing_bank_name,current_balance from banking.bank_master_card where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CARD_INFO_BY_ORGANIZATION_FOR_USER_ROLE = "select id,account_name,issuing_bank_name,current_balance from banking.bank_master_card where organization_id=? and user_id=? and role_name=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CARD_INFO_ORGANIZATION = "select id,account_name,issuing_bank_name,current_balance from banking.bank_master_card where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_WALLET_INFO_BY_ORGANIZATION = "select id,wallet_account_name,wallet_provider,current_balance from banking.bank_master_wallet where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_WALLET_INFO_BY_ORGANIZATION_FOR_USER_ROLE = "select id,wallet_account_name,wallet_provider,current_balance from banking.bank_master_wallet where organization_id=? and user_id=? and role_name=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_WALLET_INFO_ORGANIZATION = "select id,wallet_account_name,wallet_provider,current_balance from banking.bank_master_wallet where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CASH_ACCOUNT_INFO_BY_ORGANIZATION = "select id,cash_account_name,current_balance from banking.bank_master_cash_account where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CASH_ACCOUNT_INFO_BY_ORGANIZATION_FOR_USER_ROLE = "select id,cash_account_name,current_balance from banking.bank_master_cash_account where organization_id=? and user_id=? and role_name=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_CASH_ACCOUNT_INFO_ORGANIZATION = "select id,cash_account_name,current_balance from banking.bank_master_cash_account where organization_id=? order by create_ts DESC";
+	public static final String GET_BANK_MASTER_ACCOUNT_INFO_BY_ID = "select id,account_name,account_type_id,account_variant_id,account_number,account_code,bank_name,branch_name,ifsc_code,current_balance,interest_rate,currency_id,limit_val,maturity_date,opening_date,term_month,term_year,isSuperAdmin,organization_id,status,user_id from banking.bank_master_bank_account where id=?";
+	public static final String GET_BANK_MASTER_CARD_INFO_BY_ID = "select id,account_code,account_name,authorized_person,billing_date,card_number,current_balance,issuing_bank_name,isSuperAdmin,limit_val,opening_date,organization_id,status,user_id from banking.bank_master_card where id=?";
+	public static final String GET_BANK_MASTER_WALLET_INFO_BY_ID = "select id,wallet_account_name,wallet_number,wallet_provider,account_code,authorized_person,current_balance,opening_date,transaction_limit,isSuperAdmin,organization_id,status,user_id from banking.bank_master_wallet where id=?";
+	public static final String UPDATE_BANK_MASTER_ACCOUNTS = "update  banking.bank_master_bank_account set account_name=?,account_type_id=?,account_number=?,account_variant_id=?,ifsc_code=?,bank_name=?,branch_name=?,current_balance=?,interest_rate=?,opening_date=?,currency_id=?,term_month=?,term_year=?,maturity_date=?,limit_val=?,account_code=?,update_user_id=?,organization_id=?,isSuperAdmin=?,update_role_name=? where id=?";
+	public static final String UPDATE_BANK_MASTER_CARDS = "update  banking.bank_master_card set account_name=?,authorized_person=?,opening_date=?,card_number=?,issuing_bank_name=?,current_balance=?,billing_date=?,limit_val=?,account_code=?,isSuperAdmin=?,organization_id=?,update_user_id=?,update_role_name=? where id=?";
+	public static final String UPDATE_BANK_MASTER_WALLETS = "update  banking.bank_master_wallet set wallet_account_name=?,authorized_person=?,opening_date=?,wallet_number=?,wallet_provider=?,current_balance=?,transaction_limit=?,account_code=?,isSuperAdmin=?,organization_id=?,update_user_id=?,update_role_name=? where id=?";
+	public static final String UPDATE_BANK_MASTER_CASH_ACCOUNT = "update banking.bank_master_cash_account set cash_account_name=?,account_code=?,current_balance=?,currency_id=?,location_id=?,organization_id=?,isSuperAdmin=?,update_user_id=?,update_ts=?,update_role_name=? where id=?";
+	public static final String CHECK_BANK_MASTER_ACCOUNT_EXIST_UPDATE_FOR_ORGANIZATION = "select * from banking.bank_master_bank_account where organization_id=? and account_name=? and bank_name=? and id not in(?)";
+	public static final String CHECK_BANK_MASTER_CARD_EXIST_UPDATE_FOR_ORGANIZATION = "select * from banking.bank_master_card where organization_id=? and card_number=? and id not in(?)";
+	public static final String CHECK_BANK_MASTER_WALLET_EXIST_UPDATE_FOR_ORGANIZATION = "select * from banking.bank_master_wallet where organization_id=? and wallet_number=? and id not in(?)";
+	public static final String GET_BANK_MASTER_CASH_ACCOUNT_INFO_BY_ID = "select account_code,cash_account_name,currency_id,current_balance,id,isSuperAdmin,location_id,organization_id,status,user_id from banking.bank_master_cash_account where id=?";
+	public static final String CHECK_BANK_MASTER_CASH_ACCOUNT_EXIST_FOR_LOCATION = "select * from banking.bank_master_cash_account where organization_id=? and location_id=? and cash_account_name=?";
+	public static final String CHECK_BANK_MASTER_CASH_ACCOUNT_EXIST_FOR_ORGANIZATION = "select * from banking.bank_master_cash_account where organization_id=? and cash_account_name=?";
+	public static final String CHECK_BANK_MASTER_CASH_ACCOUNT_EXIST_UPDATE_FOR_LOCATION = "select * from banking.bank_master_cash_account where organization_id=? and location_id=? and cash_account_name=? and id not in(?)";
+	public static final String CHECK_BANK_MASTER_CASH_ACCOUNT_EXIST_UPDATE_FOR_ORGANIZATION = "select * from banking.bank_master_cash_account where organization_id=? and cash_account_name=? and id not in(?)";
+	public static final String GET_BASIC_WALLET_DETAILS_FOR_ORG = "SELECT id,wallet_account_name,authorized_person,wallet_number,wallet_provider,account_code FROM banking.bank_master_wallet where organization_id = ?";
+	public static final String GET_BASIC_CASH_ACCOUNT_DETAILS_FOR_ORG = "SELECT id,cash_account_name,account_code FROM banking.bank_master_cash_account where organization_id = ?";
+	public static final String GET_BASIC_CARD_DETAILS_FOR_ORG = "SELECT id,account_name,authorized_person,card_number,issuing_bank_name,account_code FROM banking.bank_master_card where organization_id = ? ";
+	public static final String GET_BASIC_BANK_ACCOUNT_DETAILS_FOR_ORG = "SELECT id,account_name,account_number,ifsc_code,bank_name,branch_name,account_code FROM banking.bank_master_bank_account where organization_id = ?";
+	public static final String GET_BANK_ACCOUNT_ID = "select id from banking.bank_master_bank_account where organization_id=? and account_name=?";
+	public static final String GET_BANK_MASTER_CARD_ID = "select id from banking.bank_master_card where organization_id=? and account_name=?";
+	public static final String GET_BANK_MASTER_WALLET_ID = "select id from banking.bank_master_wallet where organization_id=? and wallet_account_name=?";
+	public static final String GET_BANK_MASTER_WALLET_NAME = "select wallet_account_name from banking.bank_master_wallet where id=?";
+	public static final String GET_BANK_MASTER_CARD_NAME = "select account_name from banking.bank_master_card where id=?";
+	public static final String GET_BANK_MASTER_BANK_ACCOUNT_NAME = "select account_name from banking.bank_master_bank_account where id=?";
+	public static final String GET_BANK_MASTER_CASH_ACCOUNT_NAME = "select cash_account_name from banking.bank_master_cash_account where id=?";
+
+}
